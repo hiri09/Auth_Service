@@ -15,6 +15,8 @@ class UserService{
             throw {error};
         }
     }
+
+
 }
 
 module.exports = UserService;
