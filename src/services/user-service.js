@@ -92,6 +92,15 @@ class UserService{
             throw {error : "Incorrect Password"};
         }
     }
+
+    isAdmin(userId){
+        try {
+            return this.userRepository.isAdmin(userId);
+        } catch (error) {
+            console.log("Something is wrong in service layer");
+            throw {error};
+        }
+    }
     
 }
 
