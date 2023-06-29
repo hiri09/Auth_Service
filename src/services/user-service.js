@@ -31,7 +31,7 @@ class UserService{
                console.log("Password doesn'tmatch");
                throw {error};
             }
-            const newJWT = this.createToken({email : user.email , password : user.password});
+            const newJWT = this.createToken({email : user.email , id:user.id});
             return newJWT
         } catch (error) {
             console.log("Something went wrong in sign in");
@@ -39,11 +39,32 @@ class UserService{
         }
     }
     
+    async isAuthenticated(token){
+        try {
+            const response = this.verifyToken(token);
 
+            if(!response){
+                throw {error : 'Invalid Token'};
+            }
+            console.log("response is " , response );
+            const user =await this.userRepository.getById(response.id);
+
+            if(!user){
+                throw {error : "No user is found for this token"};
+            }
+
+            return user.id;
+        } catch (error) {
+            console.log("Something went wrong in sign in");
+            throw {error};
+        }
+    }
+    
     async createToken(user){
         try {
 
             const response = jwt.sign(user , JWT_KEY , {expiresIn : '2d'});
+            
             return response;
 
         } catch (error) {

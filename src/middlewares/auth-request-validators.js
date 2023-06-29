@@ -10,7 +10,6 @@ const validateUserAuth = (req , res , next)=>{
 
     next();
 }
-
 module.exports = {
     validateUserAuth
 }
