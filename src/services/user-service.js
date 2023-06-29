@@ -43,7 +43,7 @@ class UserService{
     async createToken(user){
         try {
 
-            const response = jwt.sign(user , JWT_KEY , {expiresIn : '1h'});
+            const response = jwt.sign(user , JWT_KEY , {expiresIn : '2d'});
             return response;
 
         } catch (error) {
@@ -58,7 +58,7 @@ class UserService{
             return response;
         } catch (error) {
             console.log("Something went wrong in validation");
-            throw {error};
+            throw error;
 
         }
     }

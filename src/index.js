@@ -26,9 +26,7 @@ const prepareAndStartServer = ()=> {
 
         console.log(newToken);*/
 
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhcnRoYWtAYWRtaW4uY29tIiwiaWQiOjIsImlhdCI6MTY4Nzk4NjEzMSwiZXhwIjoxNjg3OTg5NzMxfQ.yOA8wbTLmBPLnzjk7jHcsjSoDlsoEtMmIeLLCmjXUPc";
-        const response = service.verifyToken(token);
-        console.log(response);
+        
     })
 }
 
