@@ -50,7 +50,7 @@ class UserService{
                 throw {error : 'Invalid Token'};
             }
             console.log("response is " , response );
-            const user =await this.userRepository.getById(response.id);
+            const user = await this.userRepository.getById(response.id);
 
             if(!user){
                 throw {error : "No user is found for this token"};
@@ -104,6 +104,18 @@ class UserService{
             throw {error};
         }
     }
+    
+    async get(userId){
+        try{
+            const response = await this.userRepository.getById(userId);
+            return response;
+        }
+        catch(error){
+            console.log("Something went wrong in getting the token");
+            throw {error};
+        }
+    }
+    
     
 }
 

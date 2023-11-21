@@ -12,8 +12,6 @@ const prepareAndStartServer = ()=> {
     app.use(bodyParser.urlencoded({extended:true}));
     app.use('/api' , apiRoutes);
 
-    
-
 
     app.listen(PORT , async()=>{
         console.log(`server is started at ${PORT}`);

@@ -9,14 +9,13 @@ router.post(
     AuthRequestValidators.validateUserAuth,
     UserController.create
     );
-router.post(
+router.get(
     '/signin' ,
-    AuthRequestValidators.validateUserAuth,
     UserController.signIn
     );
 
 router.get('/isAuthenticated' , UserController.isAuthenticated);
 
 router.get('/isAdmin' ,AuthRequestValidators.validateIsAdminRequest ,UserController.isAdmin);
-
+router.get('/isUser/:id' , UserController.findById);
 module.exports = router;
